@@ -12,9 +12,12 @@ services:
       - key: BASE_PATH
         value: /
       - key: DATABASE_URL
-        sync: false # Set this in Render dashboard
-      - key: OPENAI_API_KEY
-        sync: false # Set this in Render dashboard if needed
+        sync: false # Set this to your PostgreSQL Internal Database URL
+      - key: AI_INTEGRATIONS_OPENAI_API_KEY
+        sync: false # Set your OpenAI API Key here
+      - key: AI_INTEGRATIONS_OPENAI_BASE_URL
+        value: https://api.openai.com/v1 # Default OpenAI base URL
+
     healthCheckPath: /api/healthz # Matches the API route
     autoDeploy: true
 
