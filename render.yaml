@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: anki-generator
+    env: docker
+    plan: free
+    region: oregon # or your preferred region
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: BASE_PATH
+        value: /
+      - key: DATABASE_URL
+        sync: false # Set this in Render dashboard
+      - key: OPENAI_API_KEY
+        sync: false # Set this in Render dashboard if needed
+    healthCheckPath: /api/healthz # Matches the API route
+    autoDeploy: true
+
